@@ -1,0 +1,7 @@
+<% if current_user.invites.exists? %>
+          <%= render 'invites' %>
+<% end %>
+
+        <%= render 'created' %>
+        <%= render 'attending' %>
+        <%= render 'attended' %>

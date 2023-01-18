@@ -1,0 +1,8 @@
+  <h3>Past Events</h3>
+
+    <% @events.past_events.each do | event |%>
+        <p><%= event.date.strftime("%B")[0,3] %> &nbsp;</p>
+        <p><%= event.date.year %> &nbsp; &nbsp;</p>
+        <p> <%= link_to event.name, event %></p>
+    <% end %>
+

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Private Events</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <%# This is the website header bar  %>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class='title is-5'>Private Events</h1>
+        <% end %>
+      </div>
+
+
+
+      <div class="navbar-item">
+        <div class='field is-grouped'>
+          <% if user_signed_in? %>
+            <p class='control'>
+              <%= link_to 'Create Event', new_event_url, class: 'button is-info is-inverted' %>
+            </p>
+            <p class='control'>
+              <%= link_to 'My Events', my_events_url, class: 'navbar-item' %>
+            </p>
+            <p class='control'>
+              <%= link_to 'Profile', edit_user_registration_path, class: 'navbar-item' %>
+            </p>
+            <p>
+              <%= link_to 'Logout', destroy_user_session_path, data: { turbo_method: "delete" }, class: 'navbar-item' %>
+            </p>
+          <% else %>
+            <p class='control'>
+              <%= link_to 'Log in', new_user_session_path, method: :get, class: 'navbar-item' %>
+            </p>
+            <p class='control'>
+            <%= link_to 'Sign up', new_user_registration_path, class: 'navbar-item' %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+
+
+    </nav>
+
+    <%# these flash hashes are added per the Devise install recommendation %>
+    <% if flash[:notice] %>
+      <div class="notification is-primary global-notification is-light">
+        <p class="notice "><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class='notification is-danger global-notification is-light'>
+        <p class='alert'><%= alert %></p>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
