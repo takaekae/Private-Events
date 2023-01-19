@@ -180,13 +180,10 @@ body{
                         color: $background-color;
                         border-radius: 5rem;
                     }
-                 }
+                }
             }
         }
-
     }
-
-
 }
 
 
@@ -339,6 +336,46 @@ body{
                 font-size: 1.2rem;
                 font-weight: 600;
                 margin-bottom: 1rem;
+            }
+        }
+        .user_current_password{
+            display: flex;
+            flex-direction: column;
+            label{
+                color: $text-color;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+                margin-left: .8rem;
+
+                abbr{
+                    display: none;
+                }
+
+
+            }
+            input[type="password"]{
+                width: 30rem;
+                height: 3rem;
+                border: none;
+                padding: 1rem;
+                border-bottom: 1px solid $text-color;
+                outline: none;
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: $text-color;
+                margin-bottom: 1rem;
+                transition: all 0.5s ease;
+                &:focus{
+                    border-bottom: 1px solid $third-color;
+                }
+            }
+            .hint{
+                color: red;
+                font-size: .8rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                margin-left: 1rem;
             }
         }
         .user_remember_me{
@@ -566,6 +603,7 @@ body{
                     font-size: 1.3rem;
                 }
             }
+
             p{
                 color: $text-color;
                 margin-top: 1rem;
@@ -576,8 +614,8 @@ body{
                 transition: all 0.5s ease;
                 &:hover{
                     color: $third-color;
-                    }
                 }
             }
+        }
     }
 }
