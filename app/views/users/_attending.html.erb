@@ -1,7 +1,7 @@
   <h3>Upcoming Events</h3>
   <% @attending_events.each do | event |%>
       <p><%= event.name %></p>
-      <p><strong>Host:</strong><%= event.creator.email %></strong><br/></p>
+      <p><strong>Host:</strong><%= event.creator.username %></strong><br/></p>
               <p><strong>Location:</strong> <%= event.location %></p>
               <p><strong>Date:</strong>
               <%= event.date.strftime("%B")[0,3] %>

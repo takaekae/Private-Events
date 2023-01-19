@@ -1,7 +1,9 @@
 
-<p> Send invites to other users to attend this event. </p>
+        <div class="sendInvites__container">
+          <p class="title">Send Invites</p>
                   <% User.all.order('email Asc').each do | user |%>
                     <% unless user.id == current_user.id %>
+                      <div class="box invites">
                         <div>
                           <p><strong>@<%= user.username %></strong> - <%= user.email %></p>
                         </div>
@@ -22,5 +24,10 @@
                               <%= link_to 'Invite', event_create_invite_path(:event_id => @event.id, :invitee_id=> user.id, :inviter_id=> current_user.id),
                                   data: { turbo_method: "post" }, class: 'button' %>
                           <% end %>
+                      </div>
                     <% end %>
                   <% end %>
+          </div>
+
+
+
