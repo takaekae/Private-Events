@@ -1,0 +1,16 @@
+  <h3>Upcoming Events</h3>
+  <% @attending_events.each do | event |%>
+      <p><%= event.name %></p>
+      <p><strong>Host:</strong><%= event.creator.email %></strong><br/></p>
+              <p><strong>Location:</strong> <%= event.location %></p>
+              <p><strong>Date:</strong>
+              <%= event.date.strftime("%B")[0,3] %>
+              <%= event.date.strftime("%d") %>,
+              <%= event.date.year %></p>
+            </div>
+                  <p><%= link_to 'View', event, class: 'button' %>&nbsp; &nbsp;</p>
+                   <%= link_to 'Withdraw', destroy_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id),
+                              data: { turbo_method: "delete",
+                                      turbo_confirm: "Click OK to confirm withdrawing from this event." },
+                                      class: 'button' %>
+  <% end %>

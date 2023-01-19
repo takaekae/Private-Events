@@ -1,0 +1,15 @@
+
+ <h3>My Events</h3>
+    <% @created_events.each do | event |%>
+      <p><%= event.name %></p>
+        <%# host current user  %>
+      <p><strong>Host:</strong><%= event.creator.email %></strong><br/></p>
+      <p><strong>Location:</strong> <%= event.location %></p>
+      <p><strong>Date:</strong>
+      <%= event.date.strftime("%B")[0,3] %>
+      <%= event.date.strftime("%d") %>,
+      <%= event.date.year %></p>
+      <p><%= link_to 'View', event, class: 'button' %> &nbsp; &nbsp;</p>
+      <p><%= link_to 'Edit', edit_event_path(event), class: 'button' %>&nbsp; &nbsp;</p>
+      <%= link_to 'Cancel', event_path(event), class: 'button', data: { turbo_method: :delete, turbo_confirm: "Click OK to confirm cancelling this event."} %>
+  <% end %>

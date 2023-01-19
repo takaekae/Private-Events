@@ -1,0 +1,14 @@
+
+    <h4>Invites</h4>
+
+            <% current_user.invites.each do | invite |%>
+                <h3><%= invite.event.name %>&nbsp;</h3>
+                <%= link_to 'View', event_path(invite.event_id), class: 'button' %>
+                <%if !current_user.attended_event_ids.include?(invite.event_id) %>
+                  <%= link_to 'Attend', create_attending_path(:attendee_id=>current_user.id, :attended_event_id=>invite.event_id),
+                      data: { turbo_method: "post" }, class: 'button' %>
+                <% end %>
+                <%= link_to 'Clear invite', event_destroy_invite_path(:event_id=> invite.event_id, :invitee_id=> current_user.id),
+                              data: { turbo_method: "delete" }, class: 'button rescind' %><br />
+            <% end %>
+  
