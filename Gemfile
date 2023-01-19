@@ -74,3 +74,5 @@ end
 
 gem "ruby-lsp", "~> 0.3.8", :group => :development
 gem "binding_of_caller"
+
+gem "hotwire-rails", "~> 0.1.3"
