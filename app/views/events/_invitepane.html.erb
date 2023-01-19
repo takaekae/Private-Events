@@ -1,6 +1,6 @@
 
 <p> Send invites to other users to attend this event. </p>
-                  <% User.all.order('username Asc').each do | user |%>
+                  <% User.all.order('email Asc').each do | user |%>
                     <% unless user.id == current_user.id %>
                         <div>
                           <p><strong>@<%= user.username %></strong> - <%= user.email %></p>
@@ -24,4 +24,3 @@
                           <% end %>
                     <% end %>
                   <% end %>
-              

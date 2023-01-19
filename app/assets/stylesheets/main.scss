@@ -1,0 +1,583 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+$background-color: #FFFBEB;
+$second-color:#495579;
+$third-color:#263159;
+$text-color:#251749;
+$bg-success: #D4EDDA;
+$color-success: #146527;
+body{
+    background-color: $background-color;
+}
+.notice{
+    padding: 1rem;
+    background-color: $bg-success;
+    color: $color-success;
+    margin-bottom: 1rem;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 6.5rem;
+    left: 0;
+    right: 0;
+    animation: fade 5s;
+    opacity: 0;
+    @keyframes fade {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+
+
+  .alert{
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 6.5rem;
+    left: 0;
+    right: 0;
+    animation: fade 5s;
+    opacity: 0;
+    @keyframes fade {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+
+.nav-container{
+    width: 100%;
+    height: 8vh;
+    background-color: $second-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    transition: all 0.5s ease;
+    &.active{
+        background-color: $second-color;
+    }
+    .nav-brand{
+        display: flex;
+        align-items: center;
+        width: 30rem;
+        a{
+            img{
+                width: 7vw;
+            }
+        }
+        h1{
+            color: $background-color;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    }
+
+    .nav-dropdown{
+        .button-container{
+            .dropdown{
+                a{
+                    color:$text-color;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    border: none;
+                    padding: 1rem 2rem;
+                    background-color: $background-color;
+                    border-radius: 5rem;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        background-color: $third-color;
+                        color: $background-color;
+                    }
+                }
+
+                .dropdown-menu{
+                    background-color: $second-color;
+                    width: 100%;
+                    // TRANSITION WHEN IT CLICK
+                    border-radius: 2rem;
+                    li{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        .link{
+                            color: $background-color;
+                            font-size: 1.2rem;
+                            font-weight: 600;
+                            border: none;
+                            padding: 1rem 2rem;
+                            background-color: $second-color;
+                            border-radius:0;
+                            cursor: pointer;
+                            transition: all 0.5s ease;
+                            text-decoration: none;
+
+                            &:hover{
+                                 color: $background-color;
+                                font-size: 1.2rem;
+                                font-weight: 600;
+                                border: none;
+                                padding: 1rem 2rem;
+                                border-radius: 0;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            .btn-wrapper{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                 .sign__in{
+                    background-color: $background-color;
+                    color: $text-color;
+                    text-decoration: none;
+                    padding: 1rem 2rem;
+                    border-radius: 5rem;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        background-color: $third-color;
+                        color: $background-color;
+                    }
+
+                 }
+
+                 .sign__up{
+                    color: $background-color;
+                    text-decoration: none;
+                    padding: 1rem 2rem;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        background-color: $third-color;
+                        color: $background-color;
+                        border-radius: 5rem;
+                    }
+                 }
+            }
+        }
+
+    }
+
+
+}
+
+
+
+
+// sign up and sign
+
+.form__container{
+    width: 100vw;
+    height: auto;
+    background-color: $background-color;
+
+  .title{
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $text-color;
+    text-align: center;
+    top: 20%;
+    left: 47%;
+  }
+
+ .simple_form {
+    width: 100%;
+    height: 98vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .error_explanation{
+        h2{
+            color: red;
+        }
+    }
+
+
+    .form__inputs{
+        .user_email{
+            display: flex;
+            flex-direction: column;
+            label{
+                color: $text-color;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+                margin-left: .8rem;
+
+                    abbr{
+                    display: none;
+                }
+
+
+            }
+            input[type="email"]{
+                width: 30rem;
+                height: 3rem;
+                border: none;
+                padding: 1rem;
+                border-bottom: 1px solid $text-color;
+                outline: none;
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: $text-color;
+                margin-bottom: 1rem;
+                transition: all 0.5s ease;
+                &:focus{
+                    border-bottom: 1px solid $third-color;
+                }
+            }
+
+        }
+
+        .user_password{
+            display: flex;
+            flex-direction: column;
+            label{
+                color: $text-color;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                margin-left: .8rem;
+
+
+                abbr{
+                    display: none;
+                }
+
+
+            }
+            input[type="password"]{
+                width: 30rem;
+                height: 3rem;
+                padding: 1rem;
+                border: none;
+                border-bottom: 1px solid $text-color;
+                outline: none;
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: $text-color;
+                margin-bottom: 1rem;
+                transition: all 0.5s ease;
+                &:focus{
+                    border-bottom: 1px solid $third-color;
+                }
+            }
+            .hint{
+                color: red;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                display: none;
+            }
+        }
+
+        .user_password_confirmation{
+            display: flex;
+            flex-direction: column;
+            label{
+                color: $text-color;
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                font-weight: 600;
+                margin-left: .8rem;
+
+                abbr{
+                    display: none;
+                }
+
+
+            }
+            input[type="password"]{
+                width: 30rem;
+                height: 3rem;
+                border: none;
+                padding: 1rem;
+                border-bottom: 1px solid $text-color;
+                outline: none;
+                font-size: 1.2rem;
+                font-weight: 600;
+                color: $text-color;
+                margin-bottom: 1rem;
+                transition: all 0.5s ease;
+                &:focus{
+                    border-bottom: 1px solid $third-color;
+                }
+            }
+            .hint{
+                color: red;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+        }
+        .user_remember_me{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            input[type="checkbox"]{
+                outline: none;
+                width: 2rem;
+                height: auto;
+                color: $text-color;
+                margin-bottom: 1rem;
+                transition: all 0.5s ease;
+                &:focus{
+                    border: 1px solid $third-color;
+                }
+            }
+            label{
+                color: $text-color;
+                font-size: 1rem;
+                font-weight: 600;
+                margin-left: .8rem;
+                abbr{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .form__actions{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .btn{
+            background-color: $third-color;
+            color: $background-color;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            &:hover{
+                font-size: 1.3rem;
+            }
+        }
+        p{
+            color: $text-color;
+            margin-top: 1rem;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            &:hover{
+                color: $third-color;
+                }
+            }
+        }
+    }
+}
+
+.form__event{
+    width: 100vw;
+    height: auto;
+    background-color: $background-color;
+
+    .title{
+        position: absolute;
+        font-size: 2rem;
+        font-weight: 600;
+        color: $text-color;
+        text-align: center;
+        top: 12%;
+        left: 45.3%;
+      }
+    .simple_form{
+        width: 100%;
+        height: 98vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+            .error_notification{
+                color: red;
+                margin-left: 1rem;
+            }
+            .error{
+                color: red;
+                margin-left: 1rem;
+
+            }
+
+
+       .form__inputs{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+            .field{
+                width: 30rem;
+                height: 3rem;
+                display: flex;
+                flex-direction: column;
+                margin: 2rem;
+                    label{
+                    color: $text-color;
+                    font-size: 1.2rem;
+                    margin-bottom: 1rem;
+                    font-weight: 600;
+                    margin-left: .8rem;
+                    abbr{
+                        display: none;
+                    }
+                }
+                    input[type="text"]{
+                        width: 30rem;
+                        height: 3rem;
+                        border: none;
+                        padding: 1rem;
+                        border-bottom: 1px solid $text-color;
+                        outline: none;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                        color: $text-color;
+                        transition: all 0.5s ease;
+                        &:focus{
+                            border-bottom: 1px solid $third-color;
+                        }
+                    }
+
+                    input[type="checkbox"]{
+                        outline: none;
+                        width: 2rem;
+                        height: auto;
+                        color: $text-color;
+                        transition: all 0.5s ease;
+                        &:focus{
+                            border: 1px solid $third-color;
+                        }
+                    }
+            }
+
+            .field-time{
+                width: 40rem;
+                display: flex;
+                flex-direction: row;
+                margin: 2rem;
+                height: 100%;
+                    label{
+                    color: $text-color;
+                    font-size: 1.2rem;
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                    font-weight: 600;
+                    margin-left: 6rem;
+                    margin-right: 1rem;
+
+                    abbr{
+                        display: none;
+                    }
+                }
+                .datetime{
+                    background-color: $background-color;
+                    margin-right: .3rem;
+                }
+
+
+           }
+            .field-desc{
+                width: 30rem;
+                height: 3rem;
+                display: flex;
+                flex-direction: column;
+                margin: 2rem;
+                height: 100%;
+                    label{
+                    color: $text-color;
+                    font-size: 1.2rem;
+                    margin-bottom: 1rem;
+                    font-weight: 600;
+                    margin-left: .8rem;
+                    abbr{
+                        display: none;
+                    }
+
+                }
+                textarea{
+                    width: 30rem;
+                    height: 100%;
+                    border: none;
+                    padding: 1rem;
+                    border-bottom: 1px solid $text-color;
+                    outline: none;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: $text-color;
+                    transition: all 0.5s ease;
+                    &:focus{
+                        border-bottom: 1px solid $third-color;
+                    }
+                }
+            }
+        }
+        .form__actions{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            input[type="submit"]{
+                background-color: $third-color;
+                color: $background-color;
+                text-decoration: none;
+                padding: 1rem 2rem;
+                border-radius: 5rem;
+                font-size: 1.2rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                &:hover{
+                    font-size: 1.3rem;
+                }
+            }
+            p{
+                color: $text-color;
+                margin-top: 1rem;
+                text-decoration: none;
+                font-size: 1rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                &:hover{
+                    color: $third-color;
+                    }
+                }
+            }
+    }
+}

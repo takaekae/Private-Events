@@ -1,0 +1,32 @@
+<nav class="nav-container">
+    <div class="nav-brand">
+        <%= link_to root_path do %>
+        <img src="https://cdn.saffire.com/images.ashx?t=ig&rid=CowPalace&i=Private_event(16).png" alt="Logo" width="10%" height="auto" class="d-inline-block align-text-top">
+        <% end %>
+        <h1 class="title">Private Events</h1>
+    </div>
+
+    <div class="nav-dropdown">
+        <div class="button-container"data-bs-theme="dark">
+            <%if current_user %>
+                <div class="dropdown">
+                <a class="btn btn-danger dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <%= current_user.email %>
+                </a>
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuButtonDark">
+                        <li class="d-flex justify-content-center first" ><%= link_to "Create Event", new_event_url , class:"link" %></li>
+                        <li class="d-flex justify-content-center first"><%= link_to "My Events", my_events_url, class:"link" %></li>
+                        <li class="d-flex justify-content-center first"><%= link_to "Profile", edit_user_registration_path, class:"link" %></li>
+                        <li class="d-flex justify-content-center first"><%= button_to "Log out", destroy_user_session_path, method: :delete,  class:"link" %></li>
+                    </ul>
+                </div>
+        </div>
+            <%else%>
+                <div class="btn-wrapper">
+                <%= link_to "Sign Up", new_user_registration_path, class:"sign__up"%>
+                <%= link_to "Sign In", new_user_session_path, class:"sign__in"%>
+
+                </div>
+            <%end%>
+    </div>
+</nav>

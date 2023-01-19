@@ -1,36 +1,51 @@
+<div class="form__event">
+  <h2 class="title">Create an Event</h2>
   <%= simple_form_for(@event) do | f | %>
-  <%= f.error_notification %>
-          <%= f.input :name,
-                      label: 'Event Name',
-                      input_html: { class: 'input' },
-                      wrapper: false, label_html: { class: 'label' },
-                      required: true,
-                      autofocus: true %>
+    <%= f.error_notification %>
+          <div class="form__inputs">
+            <div class="field">
+            <%= f.input :name,
+                        label: 'Event Name',
+                        input_html: { class: 'input' },
+                        wrapper: false, label_html: { class: 'label' },
+                        required: true,
+                        autofocus: true %>
+              </div>
 
+              <div class="field">
+            <%= f.input :location,
+                        label: 'Event Location',
+                        input_html: { class: 'input' },
+                        wrapper: false, label_html: { class: 'label' },
+                        required: true %>
+              </div>
+                <div class="field-time">
+            <%= f.input :date,
+                        label: 'Date & Time',
+                        input_html: { class: 'datetime' },
+                        wrapper: false, label_html: { class: 'label' },
+                        required: true %>
+              </div>
 
-          <%= f.input :location,
-                      label: 'Event Location',
-                      input_html: { class: 'input' },
-                      wrapper: false, label_html: { class: 'label' },
-                      required: true %>
+                <div class="field-desc">
+            <%= f.input :description,
+                        label: 'Event Description',
+                        input_html: { class: 'textarea' },
+                        wrapper: false, label_html: { class: 'label' },
+                        placeholder: 'The desctiption of your event...' %>
+            </div>
+              <div class="field">
+             <%= f.input :private,
+                        label: 'Private Event',
+                        input_html: { class: 'checkbox' },
+                        wrapper: false, label_html: { class: 'label' } %>
+              </div>
+        </div>
+      <div class="form__actions">
+        <%= f.button :submit%>
+        <p> <%= link_to "Cancel", events_path %> </p>
+    </div>
 
-          <%= f.input :date,
-                      label: 'Date & Time',
-                      input_html: { class: 'datetime' },
-                      wrapper: false, label_html: { class: 'label' },
-                      required: true %>
-
-          <%= f.input :private,
-                      label: 'Private Event',
-                      input_html: { class: 'checkbox' },
-                      wrapper: false, label_html: { class: 'label' } %>
-
-          <%= f.input :description,
-                      label: 'Event Description',
-                      input_html: { class: 'textarea' },
-                      wrapper: false, label_html: { class: 'label' },
-                      placeholder: 'Tell us about your event...' %>
-
-
-  <%= f.button :submit, class: 'button' %>
   <% end %>
+
+</div>

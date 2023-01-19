@@ -1,8 +1,7 @@
-
- <h1>Upcoming Events</h1>
+<h1>Upcoming Events</h1>
     <% @events.future_events.each do | event |%>
-      <article class="panel <%= ' is-info' if event.creator == current_user %>">
-        <p class="panel-heading"><%= event.name %> - @<%=event.creator.username%></p>
+      <div class="panel <%= ' is-info' if event.creator == current_user %>">
+        <p class="creator__name"><%=event.creator.username%> - <%= event.name %>  </p>
               <% if event.private == true %>
                   <p><strong>Attendance:</strong>&nbsp; invite only</p>
                 <% else %>
@@ -13,31 +12,21 @@
                 <%= event.date.strftime("%B")[0,3] %>
                 <%= event.date.strftime("%d") %>,
                 <%= event.date.year %></p>
-            </div>
                   <p><%= link_to 'View', event, class: 'button' %> &nbsp; &nbsp;</p>
                     <% if user_signed_in? %>
                       <% if event.creator == current_user %>
                         <p><%= link_to 'Edit', edit_event_path(event), class: 'button' %>&nbsp; &nbsp;</p>
-                        <%= link_to 'Delete', event_path(event),
-                            class: 'button',
-                            data: { turbo_method: :delete,
-                                    turbo_confirm: "Click OK to confirm deleting this event." } %>
+                        <%= link_to 'Delete', event_path(event),class: 'button', data: { turbo_method: :delete, turbo_confirm: "Click OK to confirm deleting this event." } %>
                       <% elsif %>
                         <% event.private == true && current_user.attended_event_ids.include?(event.id) %>
-                          <%= link_to 'Withdraw', destroy_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id),
-                              data: { turbo_method: "delete",
-                                      turbo_confirm: "You will need a new invite to attend. Click OK to confirm withdrawing." },
-                                      class: 'button' %>
+                          <%= link_to 'Withdraw', destroy_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id), data: { turbo_method: "delete", turbo_confirm: "You will need a new invite to attend. Click OK to confirm withdrawing." },class: 'button' %>
                       <% elsif %>
                         <% event.private == false && !current_user.attended_event_ids.include?(event.id) %>
-                        <%= link_to 'Attend', create_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id),
-                                  data: { turbo_method: "post" }, class: 'button' %>
+                        <%= link_to 'Attend', create_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id), data: { turbo_method: "post" }, class: 'button' %>
                       <% elsif%>
                         <% event.private == false %>
-                        <%= link_to 'Withdraw', destroy_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id),
-                              data: { turbo_method: "delete",
-                                      turbo_confirm: "Click OK to confirm withdrawing." },
-                                      class: 'button' %>
+                        <%= link_to 'Withdraw', destroy_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id), data: { turbo_method: "delete", turbo_confirm: "Click OK to confirm withdrawing." },class: 'button' %>
                       <% end %>
                     <% end %>
-    <% end %>
+              <% end %>
+        </div>
