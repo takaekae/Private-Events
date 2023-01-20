@@ -11,11 +11,11 @@
               <%= event.date.strftime("%d") %>,
               <%= event.date.year %></p>
                 <div class="button__container">
-                  <p><%= link_to 'View', event, class: 'button' %>&nbsp; &nbsp;</p>
-                   <%= link_to 'Cancell attend', destroy_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id),
+                  <p><%= link_to 'View', event, class: 'button' %></p>
+                   <P><%= link_to 'Cancel attend', destroy_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id),
                               data: { turbo_method: "delete",
                                       turbo_confirm: "Click OK to confirm the cancellation of this this event." },
-                                      class: 'button' %>
+                                      class: 'button' %></P>
                  </div>
            </div>
         <% end %>

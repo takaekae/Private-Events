@@ -10,7 +10,7 @@
                 <%= event.date.strftime("%d") %>,
                 <%= event.date.year %></p>
                 <div class="button__container">
-                  <p><%= link_to 'View', event, class: 'btn' %> &nbsp; &nbsp;</p>
+                  <p><%= link_to 'View', event, class: 'btn' %></p>
                   <p><%= link_to 'Edit', edit_event_path(event), class: 'btn' %>&nbsp; &nbsp;</p>
                 </div>
                 <p><%= link_to 'Cancel Event', event_path(event), class: 'button', data: { turbo_method: :delete, turbo_confirm: "Click OK to confirm cancelling this event."} %></p>
