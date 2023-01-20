@@ -13,9 +13,11 @@ $third-color:#263159;
 $text-color:#251749;
 $bg-success: #D4EDDA;
 $color-success: #146527;
-body{
-    background-color: $background-color;
-}
+
+body::-webkit-scrollbar{
+    display: none;
+  }
+
 .notice{
     padding: 1rem;
     background-color: $bg-success;
@@ -71,6 +73,7 @@ body{
     padding: 0 20px;
     position: fixed;
     transition: all 0.5s ease;
+    z-index: 1000;
     &.active{
         background-color: $second-color;
     }
@@ -619,3 +622,625 @@ body{
         }
     }
 }
+.events__container{
+    width: 100vw;
+    height: 100vh;
+    background-color: $background-color;
+    display: flex;
+    flex-direction: column;
+    padding: 10rem;
+
+    .upcoming__events{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .title{
+            color: $text-color;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .card__container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+            .event__card{
+                position: relative;
+                width: 20rem;
+                height: 22vh;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border-radius: 1rem;
+                margin: 1rem;
+                box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+                transition: all 0.5s ease;
+
+
+                &:hover{
+                    top: -10px;
+                    transition: all 0.5s ease;
+                }
+
+                .event__title{
+                    color: $text-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+
+                .button{
+                    width: 5rem;
+                    height: 2rem;
+                    background-color: $third-color;
+                    color: $background-color;
+                    text-decoration: none;
+                    padding: 1rem 2rem;
+                    border-radius: 5rem;
+                    font-size: .7rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        font-size: 1rem;
+                    }
+                }
+
+            }
+
+
+
+        }
+
+
+    }
+
+    .past__events{
+
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .title{
+                color: $text-color;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+
+            .card__container{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+
+                .event__card{
+                    position: relative;
+                    width: 15vw;
+                    height: 20vh;
+                    padding: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    border-radius: 1rem;
+                    margin:1rem;
+                    transition: all 0.5s ease;
+                    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+
+                    &:hover{
+
+                        top: -10px;
+                        transition: all 0.5s ease;
+                    }
+
+                    .event__title{
+                        color: $text-color;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        margin-bottom: 1rem;
+
+                        &:hover{
+                            font-size: 1.2rem;
+
+                        }
+                    }
+
+                    p{
+                        color: $text-color;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        margin-bottom: 1rem;
+                    }
+
+                    .button{
+                        width: 5rem;
+                        height: 2rem;
+                        background-color: $third-color;
+                        color: $background-color;
+                        text-decoration: none;
+                        padding: 1rem 2rem;
+                        border-radius: 5rem;
+                        font-size: .7rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.5s ease;
+                        &:hover{
+                            font-size: 1rem;
+                        }
+                    }
+
+                }
+                &:hover{
+                    font-size: 1rem;
+                }
+
+
+        }
+    }
+}
+
+
+.show__container{
+    width: 100vw;
+    height: 100vh;
+    background-color: $background-color;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .title{
+        color: $text-color;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+    }
+
+    .card__container{
+        width: 50vw;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+
+        .event__card{
+            width: 40rem;
+            height: 50vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 1rem;
+
+            .event__title{
+                color: $text-color;
+                text-align: center;
+                font-size: 3rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            .event__host{
+                color: $text-color;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            .event__location{
+                color: $text-color;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            .event__date{
+                color: $text-color;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            .event__details{
+                color: $text-color;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            .event__private{
+                color: $text-color;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            .event__public{
+                color: $text-color;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 4rem;
+            }
+
+            .button__container{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+                margin-bottom: 2rem;
+
+                .btn{
+                    width: 10rem;
+                    height: 3.5rem;
+                    background-color: $third-color;
+                    color: $background-color;
+                    text-decoration: none;
+                    padding: 1rem;
+                    border-radius: 5rem;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        font-size: 1.2rem;
+                    }
+                }
+
+            }
+
+            .button{
+                width: 7rem;
+                    height: 3.5rem;
+                    background-color: $third-color;
+                    color: $background-color;
+                    text-decoration: none;
+                    padding: 1rem;
+                    border-radius: 5rem;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    text-align: center;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        font-size: 1rem;
+                    }
+            }
+
+
+        }
+
+
+
+    }
+
+    .attendee__container{
+        width: 50vw;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        .wrapper{
+            width: 50%;
+            height: auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+
+            h1{
+                color: $third-color;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+            .attendee__name{
+                color: $second-color;
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 2rem;
+            }
+
+        }
+        .sendInvites__container{
+            width: 50vw;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+            .box{
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+                border-radius: 1rem;
+                margin: 1rem;
+                padding: 1rem;
+
+                p{
+                    color: $text-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+                .status{
+                    color: $text-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: #146527;
+
+                }
+                // a is a button
+                a{
+                    width: 8rem;
+                    height: 1rem;
+                    background-color: $third-color;
+                    color: $background-color;
+                    text-decoration: none;
+                    padding: 1rem;
+                    border-radius: 5rem;
+                    font-size: .6rem;
+                    font-weight: 600;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: all 0.5s ease;
+                    &:hover{
+                        text-decoration: underline;
+                        font-size: .7rem;
+                        transition: all 0.5s ease;
+                    }
+                }
+            }
+        }
+
+    }
+}
+.user__container{
+    width: 100vw;
+    height: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:10rem;
+    background-color: $background-color;
+
+
+    .invitation__container{
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .title{
+            color: $text-color;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-right: 3rem;
+        }
+        .event__card{
+            position: relative;
+            background-color: $background-color;
+            width: 20vw;
+            height: 12vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 1rem;
+            margin:1rem;
+            transition: all 0.5s ease;
+            box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+            z-index: 1;
+
+            &:hover{
+
+                top: -10px;
+                transition: all 0.5s ease;
+            }
+            .event__title__invite{
+                color: $text-color;
+                text-align: center;
+                font-size: 1.5rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+
+            .button__container{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+
+                .btn{
+                        width: 10rem;
+                        text-decoration: none;
+                        padding: 1rem;
+                        border-radius: 5rem;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.5s ease;
+                        color: $second-color;
+                        &:hover{
+                            font-size: 1rem;
+                            text-decoration: underline;
+                        }
+                }
+
+            }
+
+        }
+
+
+    }
+
+
+
+    .title{
+        color: $text-color;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-left: 2rem;
+    }
+
+    .my__events{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .card__container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
+            .event__card{
+                position: relative;
+                width: 14vw;
+                height: 30vh;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                border-radius: 1rem;
+                margin:1rem;
+                transition: all 0.5s ease;
+                box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+
+                &:hover{
+
+                    top: -10px;
+                    transition: all 0.5s ease;
+                }
+               c
+                .event__host{
+                    color: $text-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+
+                .event__location{
+                    color: $text-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+
+                .event__date{
+                    color: $text-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+
+                .event__details{
+                    color: $text-color;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+
+                .event__private{
+                    color: $text-color;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    margin-bottom: 1rem;
+                }
+
+                .event__public{
+                    color: $text-color;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    margin-bottom: 4rem;
+                }
+
+                .button__container{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+
+                    .btn{
+                        width: 6rem;
+                        height: 3.5rem;
+                        background-color: $third-color;
+                        color: $background-color;
+                        text-decoration: none;
+                        padding: 1rem;
+                        border-radius: 5rem;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.5s ease;
+                        &:hover{
+                            font-size: 1rem;
+                            width: 7.3rem;
+                            height: 3.6rem;
+
+                        }
+                    }
+
+                }
+
+                .button{
+                    width: 10rem;
+                        text-decoration: none;
+                        padding: 1rem;
+                        border-radius: 5rem;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.5s ease;
+                        color: $second-color;
+                        &:hover{
+                            font-size: 1rem;
+                            text-decoration: underline;
+                        }
+                }
+            }
+        }
+
+    }
+
+}
+
+

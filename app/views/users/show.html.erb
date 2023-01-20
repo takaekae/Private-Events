@@ -1,10 +1,9 @@
+
+<div class="user__container">
 <% if current_user.invites.exists? %>
-          <%= render 'invites' %>
+        <%= render 'invites' %>
 <% end %>
-<div class="wrapper">
-
     <%= render 'created' %>
-<%= render 'attending' %>
-<%= render 'attended' %>
-
+    <%= render 'attending' %>
+    <%= render 'attended' %>
 </div>

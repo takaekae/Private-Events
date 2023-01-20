@@ -1,7 +1,11 @@
-  <h3>Past Events</h3>
-    <% @events.past_events.each do | event |%>
-        <p> <%= link_to event.name, event %></p>
-        <p><%= event.date.strftime("%B")[0,3] %> &nbsp;</p>
-        <p><%= event.date.year %> &nbsp; &nbsp;</p>
-    <% end %>
-
+<h3 class="title">Past Events</h3>
+    <div class="card__container">
+        <% @events.past_events.each do | event |%>
+                <div class="event__card">
+                    <p><%= link_to event.name, event, class:"event__title"%></p>
+                    <p><%= event.date.strftime("%B")[0,3] %> &nbsp;</p>
+                    <p><%= event.date.year %> &nbsp; &nbsp;</p>
+                    <p><%= link_to 'Read more', event, class: 'button' %> &nbsp; &nbsp;</p>
+                </div>
+        <% end %>
+    </div>

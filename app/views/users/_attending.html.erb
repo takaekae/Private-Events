@@ -1,16 +1,24 @@
-  <h3>Upcoming Events</h3>
-  <% @attending_events.each do | event |%>
-      <p><%= event.name %></p>
-      <p><strong>Host:</strong><%= event.creator.username %></strong><br/></p>
-              <p><strong>Location:</strong> <%= event.location %></p>
-              <p><strong>Date:</strong>
+<div class="my__events">
+  <h3 class= "title">My Upcoming Events</h3>
+      <div class="card__container">
+          <% @attending_events.each do | event |%>
+            <div class="event__card" >
+              <p class="event__title" ><%= event.name %></p>
+              <p class="event__host" ><strong>Host:</strong><%= event.creator.username %></strong><br/></p>
+              <p class="event__location" ><strong>Location:</strong> <%= event.location %></p>
+              <p class="event__date"><strong>Date:</strong>
               <%= event.date.strftime("%B")[0,3] %>
               <%= event.date.strftime("%d") %>,
               <%= event.date.year %></p>
-            </div>
+                <div class="button__container">
                   <p><%= link_to 'View', event, class: 'button' %>&nbsp; &nbsp;</p>
-                   <%= link_to 'Withdraw', destroy_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id),
+                   <%= link_to 'Cancell attend', destroy_attending_path(:attendee_id=>current_user.id, :attended_event_id=>event.id),
                               data: { turbo_method: "delete",
-                                      turbo_confirm: "Click OK to confirm withdrawing from this event." },
+                                      turbo_confirm: "Click OK to confirm the cancellation of this this event." },
                                       class: 'button' %>
-  <% end %>
+                 </div>
+           </div>
+        <% end %>
+      </div>
+</div>
+
